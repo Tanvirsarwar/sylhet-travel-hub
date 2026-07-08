@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylhet Travel Hub - Explore Without The Hassle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <span class="logo-icon">🏔️</span>
+                    <span class="logo-text">SYLHET<br><small>TRAVEL HUB</small></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#hotels">Hotels</a></li>
+                    <li><a href="#transport">Transport</a></li>
+                    <li><a href="#guides">Guides</a></li>
+                    <li><a href="#corporate">Corporate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn-login" id="loginBtn">Login</button>
+                    <button class="btn-partner">Become Partner</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explore Sylhet<br>Without The <span class="highlight">Hassle</span></h1>
+            <p>Everything you need in one booking.<br>Hotels • Transport • Guides • Food • Activities</p>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-tab="packages">
+                        <span class="icon">📦</span> Packages
+                    </button>
+                    <button class="tab-btn" data-tab="hotels">
+                        <span class="icon">🏨</span> Hotels
+                    </button>
+                    <button class="tab-btn" data-tab="transport">
+                        <span class="icon">🚗</span> Transport
+                    </button>
+                    <button class="tab-btn" data-tab="guides">
+                        <span class="icon">👥</span> Guides
+                    </button>
+                </div>
+
+                <div class="search-form">
+                    <div class="form-group">
+                        <label>Where do you want to go?</label>
+                        <input type="text" id="destinationSearch" placeholder="Search destination..." class="destination-input">
+                        <div class="destination-suggestions" id="destinationSuggestions"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Check In</label>
+                        <input type="date" id="checkInDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Check Out</label>
+                        <input type="date" id="checkOutDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Travelers</label>
+                        <select id="travelersSelect">
+                            <option>2 Adults - 0 Child</option>
+                            <option>1 Adult - 0 Child</option>
+                            <option>2 Adults - 1 Child</option>
+                            <option>2 Adults - 2 Children</option>
+                            <option>3 Adults - 0 Child</option>
+                            <option>4 Adults - 0 Child</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-search" id="searchBtn">Search Packages</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="icon">👥</span>
+                    <h3>10,000+</h3>
+                    <p>Happy Travelers</p>
+                </div>
+                <div class="stat-item">
+                    <span class="icon">🏨</span>
+                    <h3>120+</h3>
+                    <p>Hotels</p>
+                </div>
+                <div class="stat-item">
+                    <span class="icon">🚗</span>
+                    <h3>75+</h3>
+                    <p>Transport Partners</p>
+                </div>
+                <div class="stat-item">
+                    <span class="icon">👨‍💼</span>
+                    <h3>50+</h3>
+                    <p>Tour Guides</p>
+                </div>
+                <div class="stat-item">
+                    <span class="icon">⭐</span>
+                    <h3>4.9</h3>
+                    <p>User Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="destinations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Destinations</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="destinations-carousel" id="destinationsCarousel">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section" id="filtersSection" style="display: none;">
+        <div class="container">
+            <h2>Refine Your Search</h2>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <div class="price-filter">
+                        <input type="range" id="priceMin" min="0" max="50000" value="0">
+                        <input type="range" id="priceMax" min="0" max="50000" value="50000">
+                        <p>৳<span id="priceMinDisplay">0</span> - ৳<span id="priceMaxDisplay">50000</span></p>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Rating</label>
+                    <div class="rating-filter">
+                        <input type="checkbox" id="rating5" value="5">
+                        <label for="rating5">⭐⭐⭐⭐⭐ (5 Star)</label>
+                        <input type="checkbox" id="rating4" value="4">
+                        <label for="rating4">⭐⭐⭐⭐ (4+ Star)</label>
+                        <input type="checkbox" id="rating3" value="3">
+                        <label for="rating3">⭐⭐⭐ (3+ Star)</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Duration</label>
+                    <div class="duration-filter">
+                        <input type="checkbox" value="1-2" class="duration-check">
+                        <label>1-2 Days</label><br>
+                        <input type="checkbox" value="3-4" class="duration-check">
+                        <label>3-4 Days</label><br>
+                        <input type="checkbox" value="5+" class="duration-check">
+                        <label>5+ Days</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Activity Type</label>
+                    <div class="activity-filter">
+                        <input type="checkbox" value="adventure" class="activity-check">
+                        <label>Adventure</label><br>
+                        <input type="checkbox" value="cultural" class="activity-check">
+                        <label>Cultural</label><br>
+                        <input type="checkbox" value="family" class="activity-check">
+                        <label>Family</label><br>
+                        <input type="checkbox" value="corporate" class="activity-check">
+                        <label>Corporate</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Includes</label>
+                    <div class="includes-filter">
+                        <input type="checkbox" value="hotel" class="includes-check">
+                        <label>Hotel</label><br>
+                        <input type="checkbox" value="transport" class="includes-check">
+                        <label>Transport</label><br>
+                        <input type="checkbox" value="guide" class="includes-check">
+                        <label>Guide</label><br>
+                        <input type="checkbox" value="meals" class="includes-check">
+                        <label>Meals</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-apply-filters" id="applyFiltersBtn">Apply Filters</button>
+        </div>
+    </section>
+
+    <!-- Ready Made Packages -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready Made Packages</h2>
+                <a href="#" class="view-all">View All Packages</a>
+            </div>
+            <div class="packages-grid" id="packagesGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+            <button class="btn-show-filters" id="showFiltersBtn">Show Filters</button>
+        </div>
+    </section>
+
+    <!-- Build Your Own Trip -->
+    <section class="build-trip-section">
+        <div class="container">
+            <h2>Build Your Own Trip</h2>
+            <div class="build-trip-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <span class="icon">📍</span>
+                    <p>Choose<br>Destination</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <span class="icon">🏨</span>
+                    <p>Select<br>Hotel</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <span class="icon">🚗</span>
+                    <p>Choose<br>Transport</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <span class="icon">🍽️</span>
+                    <p>Food<br>Preference</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <span class="icon">👨‍💼</span>
+                    <p>Tour<br>Guide</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <span class="icon">💼</span>
+                    <p>Review &<br>Pay</p>
+                </div>
+            </div>
+            <button class="btn-build-trip">Build My Trip</button>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us-section">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🏨</span>
+                    <h3>Verified Hotels</h3>
+                    <p>Quality stays you can trust</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">👨‍💼</span>
+                    <h3>Trusted Local Guides</h3>
+                    <p>Expert guides for authentic experiences</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⚡</span>
+                    <h3>Instant Booking</h3>
+                    <p>Book in seconds, travel with ease</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔒</span>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure payment gateway</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📞</span>
+                    <h3>24/7 Support</h3>
+                    <p>We're here for you anytime</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🆘</span>
+                    <h3>Emergency Assistance</h3>
+                    <p>Emergency support throughout your trip</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Travelers Say</h2>
+                <a href="#" class="view-all">View All Reviews</a>
+            </div>
+            <div class="reviews-carousel" id="reviewsCarousel">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download-section">
+        <div class="container">
+            <div class="app-download-content">
+                <div class="app-text">
+                    <h2>Your Sylhet Trip<br>In Your Pocket</h2>
+                    <p>Download our app for exclusive deals and easy bookings</p>
+                    <div class="download-buttons">
+                        <button class="btn-download">📱 App Store</button>
+                        <button class="btn-download">🎮 Google Play</button>
+                    </div>
+                </div>
+                <div class="app-image">
+                    <div class="phone-mockup">📱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🏔️</span>
+                        <span class="logo-text">SYLHET TRAVEL HUB</span>
+                    </div>
+                    <p>Your trusted travel partner for unforgettable experiences in Sylhet.</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">𝕏</a>
+                        <a href="#">📷</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Links</h4>
+                    <ul>
+                        <li><a href="#">Tours</a></li>
+                        <li><a href="#">Hotels</a></li>
+                        <li><a href="#">Transport</a></li>
+                        <li><a href="#">Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>📞 +880-524-667990</p>
+                    <p>📧 hello@sylhettravel.com</p>
+                    <p>📍 Zindabazar, Sylhet 3100</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sylhet Travel Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Package Details -->
+    <div class="modal" id="packageModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to Sylhet Travel Hub</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
