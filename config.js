@@ -1,6 +1,6 @@
 // Supabase Configuration
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://pqndtmqixtzlffwcaizw.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxbmR0bXFpeHR6bGZmd2NhaXp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1MzA4NDYsImV4cCI6MjA5OTEwNjg0Nn0.2oA-WA-E9aOL1J_7L9JVgolicn3N776Aka-G2JGblpw';
 
 // Mock data for demonstration
 const DESTINATIONS = [
