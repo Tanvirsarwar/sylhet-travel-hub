@@ -23,16 +23,26 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
     background-color: #fff;
+    font-weight: 400;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
 }
 
 /* Navigation */
@@ -57,22 +67,22 @@ body {
     align-items: center;
     gap: 10px;
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-}
-
-.logo-icon {
-    font-size: 30px;
 }
 
 .logo-text {
     font-size: 14px;
     line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .logo-text small {
     font-size: 10px;
     font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -85,7 +95,9 @@ body {
     color: white;
     text-decoration: none;
     font-size: 14px;
+    font-weight: 500;
     transition: color 0.3s;
+    letter-spacing: 0.3px;
 }
 
 .nav-links a:hover {
@@ -106,6 +118,8 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-login:hover {
@@ -122,6 +136,8 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-partner:hover {
@@ -144,6 +160,8 @@ body {
     margin-bottom: 20px;
     font-weight: 700;
     line-height: 1.2;
+    letter-spacing: -0.5px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-content .highlight {
@@ -152,7 +170,9 @@ body {
 
 .hero-content p {
     font-size: 18px;
-    opacity: 0.9;
+    opacity: 0.95;
+    font-weight: 400;
+    letter-spacing: 0.3px;
 }
 
 /* Search Section */
@@ -184,16 +204,20 @@ body {
     border: none;
     color: var(--text-light);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     padding: 10px 0;
     transition: all 0.3s;
     border-bottom: 3px solid transparent;
     margin-bottom: -17px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
 }
 
 .tab-btn.active {
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
+    font-weight: 600;
 }
 
 .tab-btn:hover {
@@ -213,10 +237,13 @@ body {
 }
 
 .form-group label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
 }
 
 .form-group input,
@@ -226,6 +253,11 @@ body {
     border-radius: 8px;
     font-size: 14px;
     transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input::placeholder {
+    color: #999;
 }
 
 .form-group input:focus,
@@ -263,6 +295,8 @@ body {
     cursor: pointer;
     transition: all 0.2s;
     border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .suggestion-item:hover {
@@ -276,11 +310,13 @@ body {
     border: none;
     padding: 12px 30px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     height: 44px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
 }
 
 .btn-search:hover {
@@ -306,21 +342,18 @@ body {
     padding: 20px;
 }
 
-.stat-item .icon {
-    font-size: 36px;
-    display: block;
-    margin-bottom: 10px;
-}
-
 .stat-item h3 {
-    font-size: 24px;
+    font-size: 28px;
     color: var(--primary-color);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .stat-item p {
     color: var(--text-light);
     font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 /* Destinations Section */
@@ -339,6 +372,8 @@ body {
 .section-header h2 {
     font-size: 32px;
     color: var(--text-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .view-all {
@@ -346,6 +381,8 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .view-all:hover {
@@ -398,15 +435,17 @@ body {
 
 .destination-name {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 5px;
+    letter-spacing: 0.2px;
 }
 
 .destination-rating {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 /* Filters Section */
@@ -418,6 +457,7 @@ body {
 .filters-section h2 {
     margin-bottom: 30px;
     font-size: 28px;
+    font-weight: 700;
 }
 
 .filters-grid {
@@ -438,17 +478,23 @@ body {
     font-weight: 600;
     margin-bottom: 15px;
     color: var(--text-dark);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-family: 'Inter', sans-serif;
 }
 
 .filter-group input[type="checkbox"] {
     margin-right: 8px;
     cursor: pointer;
+    accent-color: var(--primary-color);
 }
 
 .filter-group input[type="checkbox"] + label {
     display: inline;
     font-weight: 400;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .price-filter {
@@ -459,12 +505,13 @@ body {
 
 .price-filter input[type="range"] {
     width: 100%;
+    accent-color: var(--primary-color);
 }
 
 .price-filter p {
     font-size: 14px;
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .rating-filter,
@@ -483,9 +530,11 @@ body {
     padding: 12px 30px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
 }
 
 .btn-apply-filters:hover {
@@ -523,6 +572,11 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
 }
 
 .package-content {
@@ -531,18 +585,20 @@ body {
 
 .package-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 10px;
+    letter-spacing: 0.2px;
 }
 
 .package-meta {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 15px;
     font-size: 13px;
     color: var(--text-light);
     flex-wrap: wrap;
+    font-weight: 500;
 }
 
 .package-meta span {
@@ -556,11 +612,13 @@ body {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 15px;
+    letter-spacing: 0.2px;
 }
 
 .package-price small {
     font-size: 12px;
     color: var(--text-light);
+    font-weight: 400;
 }
 
 .package-actions {
@@ -578,6 +636,8 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-details:hover {
@@ -595,6 +655,8 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-book:hover {
@@ -608,11 +670,12 @@ body {
     padding: 12px 30px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     transition: all 0.3s;
     display: block;
     margin: 0 auto;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-show-filters:hover {
@@ -629,6 +692,7 @@ body {
     font-size: 32px;
     margin-bottom: 50px;
     text-align: center;
+    font-weight: 700;
 }
 
 .build-trip-steps {
@@ -656,24 +720,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.step .icon {
-    font-size: 32px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .step p {
     font-size: 13px;
     text-align: center;
-    line-height: 1.3;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 .arrow {
     color: var(--primary-color);
     font-size: 24px;
     display: none;
+    font-weight: 300;
 }
 
 @media (min-width: 768px) {
@@ -691,9 +755,10 @@ body {
     padding: 12px 40px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-build-trip:hover {
@@ -710,6 +775,7 @@ body {
     font-size: 32px;
     margin-bottom: 50px;
     text-align: center;
+    font-weight: 700;
 }
 
 .features-grid {
@@ -723,20 +789,19 @@ body {
     padding: 20px;
 }
 
-.feature-item .icon {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
 .feature-item h3 {
     font-size: 18px;
     margin-bottom: 10px;
     color: var(--text-dark);
+    font-weight: 700;
+    letter-spacing: 0.2px;
 }
 
 .feature-item p {
     color: var(--text-light);
     font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 /* Reviews Section */
@@ -773,8 +838,9 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     flex-shrink: 0;
+    font-weight: 600;
 }
 
 .review-info {
@@ -783,25 +849,30 @@ body {
 }
 
 .review-name {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-dark);
+    font-size: 14px;
+    letter-spacing: 0.2px;
 }
 
 .review-location {
     font-size: 12px;
     color: var(--text-light);
+    font-weight: 400;
 }
 
 .review-rating {
     color: var(--accent-color);
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .review-text {
     color: var(--text-light);
     font-size: 14px;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 /* App Download Section */
@@ -822,12 +893,16 @@ body {
     font-size: 36px;
     margin-bottom: 15px;
     line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .app-text p {
     font-size: 16px;
     margin-bottom: 20px;
-    opacity: 0.9;
+    opacity: 0.95;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .download-buttons {
@@ -844,6 +919,8 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-download:hover {
@@ -878,7 +955,10 @@ body {
 
 .footer-col h4 {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .footer-col ul {
@@ -893,6 +973,8 @@ body {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .footer-col a:hover {
@@ -904,17 +986,15 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.footer-logo .logo-icon {
-    font-size: 24px;
+    font-weight: 700;
 }
 
 .footer-col p {
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
     font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .social-links {
@@ -931,6 +1011,8 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     transition: all 0.3s;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .social-links a:hover {
@@ -944,6 +1026,7 @@ body {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
+    font-weight: 400;
 }
 
 /* Modal */
@@ -1020,6 +1103,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 #loginForm button {
@@ -1031,6 +1115,7 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
 }
 
 #loginForm button:hover {
@@ -1142,10 +1227,6 @@ body {
         width: 30px;
         height: 30px;
         font-size: 12px;
-    }
-
-    .step .icon {
-        font-size: 24px;
     }
 
     .package-card {
