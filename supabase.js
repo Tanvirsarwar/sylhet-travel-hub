@@ -8,23 +8,34 @@ class SupabaseClient {
             'apikey': key,
             'Authorization': `Bearer ${key}`
         };
+        this.currentUser = null;
     }
 
-    // Auth
-    async signup(email, password) {
+    // Auth - Signup
+    async signup(email, password, fullName) {
         try {
             const response = await fetch(`${this.url}/auth/v1/signup`, {
                 method: 'POST',
                 headers: this.headers,
                 body: JSON.stringify({ email, password })
             });
-            return await response.json();
+            const data = await response.json();
+            
+            if (data.user) {
+                this.currentUser = data.user;
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userName', fullName);
+                localStorage.setItem('userId', data.user.id);
+                return { success: true, user: data.user };
+            }
+            return { success: false, error: data.error_description || 'Signup failed' };
         } catch (error) {
             console.error('Signup error:', error);
-            return null;
+            return { success: false, error: error.message };
         }
     }
 
+    // Auth - Login
     async login(email, password) {
         try {
             const response = await fetch(`${this.url}/auth/v1/token?grant_type=password`, {
@@ -32,14 +43,44 @@ class SupabaseClient {
                 headers: this.headers,
                 body: JSON.stringify({ email, password })
             });
-            return await response.json();
+            const data = await response.json();
+            
+            if (data.user) {
+                this.currentUser = data.user;
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userId', data.user.id);
+                localStorage.setItem('accessToken', data.access_token);
+                return { success: true, user: data.user };
+            }
+            return { success: false, error: data.error_description || 'Login failed' };
         } catch (error) {
             console.error('Login error:', error);
-            return null;
+            return { success: false, error: error.message };
         }
     }
 
-    // Database operations
+    // Get current user
+    getCurrentUser() {
+        const email = localStorage.getItem('userEmail');
+        const name = localStorage.getItem('userName');
+        const userId = localStorage.getItem('userId');
+        
+        if (email && userId) {
+            return { email, name, userId };
+        }
+        return null;
+    }
+
+    // Logout
+    logout() {
+        this.currentUser = null;
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('accessToken');
+    }
+
+    // Database operations - Get packages
     async getPackages() {
         try {
             const response = await fetch(
@@ -53,6 +94,7 @@ class SupabaseClient {
         }
     }
 
+    // Create booking
     async createBooking(bookingData) {
         try {
             const response = await fetch(
@@ -70,6 +112,7 @@ class SupabaseClient {
         }
     }
 
+    // Get user bookings
     async getBookings(userId) {
         try {
             const response = await fetch(
@@ -82,9 +125,29 @@ class SupabaseClient {
             return [];
         }
     }
+
+    // Process payment (mock payment gateway)
+    async processPayment(paymentData) {
+        try {
+            // This would connect to Stripe, PayPal, or other payment gateway
+            // For now, we'll mock it
+            const response = await fetch(
+                `${this.url}/rest/v1/payments`,
+                {
+                    method: 'POST',
+                    headers: this.headers,
+                    body: JSON.stringify(paymentData)
+                }
+            );
+            return await response.json();
+        } catch (error) {
+            console.error('Payment error:', error);
+            return { success: false, error: error.message };
+        }
+    }
 }
 
-// Initialize client (use actual credentials when available)
+// Initialize client
 let supabase = null;
 
 function initSupabase() {
